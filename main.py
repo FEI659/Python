@@ -1,19 +1,14 @@
 import pygame
 from pygame.locals import * 
 import sys
+import App
 
 # 定数.
+SCREEN_CAPTION = u"My Pygame Application"
 SCREEN_SIZE = (640, 480) # 画面サイズ.
+SCREEN_COLOR = (0,0,0) # 画面カラー.
 
-# 初期化.
-pygame.init()
-screen = pygame.display.set_mode(SCREEN_SIZE)
-pygame.display.set_caption(u"Pygame Init Testing.")
-
-while True:
-    screen.fill((0,0,255))
-    pygame.display.update()
-
-    for event in pygame.event.get():
-        if event.type == QUIT:
-            sys.exit()
+app = App.App()
+app.init(SCREEN_CAPTION, SCREEN_SIZE)
+app.setClearColor(SCREEN_COLOR)
+app.launch()
